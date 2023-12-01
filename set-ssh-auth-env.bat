@@ -1,0 +1,1 @@
+Powershell.exe -windowstyle hidden -executionpolicy bypass -File .\set-ssh-auth-env.ps1
