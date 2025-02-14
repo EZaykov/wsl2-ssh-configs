@@ -11,7 +11,10 @@
 # For debugging startup problems uncomment next line
 # exec 2> >(tee -a -i "$HOME/error.log")
 
-PAGEANT_NPIPE="$(cat ~/.ssh/pageant.conf | cut -c 16-101)"
+PAGEANT_NPIPE="$(cat ~/.ssh/pageant.conf)"
+PAGEANT_NPIPE="${PAGEANT_NPIPE#*\"}"
+PAGEANT_NPIPE="${PAGEANT_NPIPE%\"*}"
+
 RELAY_BIN="/mnt/c/ProgramData/chocolatey/bin/npiperelay.exe"
 PIDFILE="${HOME}/.ssh_local/wsl-ssh-agent-relay.pid"
 WSL_AGENT_SSH_SOCK="${HOME}/.ssh_local/wsl-ssh-agent.sock"
